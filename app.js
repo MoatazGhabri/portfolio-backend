@@ -34,10 +34,19 @@ app.post('/submit-feedback', (req, res) => {
 
   const mailOptions = {
     from: email,
-    to: 'moatazghabri@gmail.com', // Replace with the recipient's email
-    subject: `New feedback from ${firstname} ${lastname}`,
-    text: `Email: ${email}\nMessage: ${message}`,
+    to: 'moatazghabri@gmail.com', // Remplacez par l'adresse e-mail du destinataire
+    subject: `Nouveau feedback de ${firstname} ${lastname}`,
+    html: `
+      <div style="border: 2px solid #3498db; padding: 20px; border-radius: 10px;">
+        <h2 style="color: #3498db;">Nouveau Feedback</h2>
+        <p><strong>Prénom:</strong> ${firstname}</p>
+        <p><strong>Nom:</strong> ${lastname}</p>
+        <p><strong>E-mail:</strong> ${email}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      </div>
+    `,
   };
+  
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
