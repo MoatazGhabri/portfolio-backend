@@ -37,12 +37,21 @@ app.post('/submit-feedback', (req, res) => {
     to: 'moatazghabri@gmail.com', // Remplacez par l'adresse e-mail du destinataire
     subject: `Nouveau feedback de ${firstname} ${lastname}`,
     html: `
-      <div style="border: 2px solid #3498db; padding: 20px; border-radius: 10px;">
-        <h2 style="color: #3498db;">Nouveau Feedback</h2>
+      <div style=" max-width: 600px;
+      margin: 0 auto; border: 2px solid #3498db; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #3498db;
+        text-align: center;
+        padding: 10px;
+        border-radius: 5px;">Nouveau Feedback</h2>
         <p><strong>Prénom:</strong> ${firstname}</p>
         <p><strong>Nom:</strong> ${lastname}</p>
         <p><strong>E-mail:</strong> ${email}</p>
-        <p><strong>Message:</strong> ${message}</p>
+        <p><strong>Message:</strong><br> ${message}</p>
+        <h2 style=" background-color: #3498db;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        border-radius: 5px;">  © Moatez | Portfolio</h2>
       </div>
     `,
   };
